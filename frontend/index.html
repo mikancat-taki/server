@@ -10,21 +10,30 @@
   <h1>現在の時刻</h1>
   <div id="clock">00:00:00</div>
 
-  <table id="taskTable">
+  <h2>メンバー一覧</h2>
+  <table id="memberTable">
     <thead>
-      <tr>
-        <th>タスク名</th>
-        <th>期限</th>
-        <th>ステータス</th>
-      </tr>
+      <tr><th>名前</th><th>役割</th></tr>
     </thead>
     <tbody></tbody>
   </table>
+  <form id="memberForm">
+    <input type="text" name="name" placeholder="名前" required>
+    <input type="text" name="role" placeholder="役割" required>
+    <button type="submit">追加</button>
+  </form>
 
-  <h2>タスク追加</h2>
+  <h2>タスク一覧</h2>
+  <table id="taskTable">
+    <thead>
+      <tr><th>タスク名</th><th>期限</th><th>ステータス</th><th>担当</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
   <form id="taskForm">
     <input type="text" name="name" placeholder="タスク名" required>
     <input type="date" name="due" required>
+    <select name="memberId" required></select>
     <button type="submit">追加</button>
   </form>
 
