@@ -2,14 +2,16 @@
   "name": "server-app",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "install:all": "cd backend && npm install && cd ../frontend && npm install",
     "dev:backend": "cd backend && nodemon index.js",
     "dev:frontend": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "start": "cd backend && node index.js",
     "build:frontend": "cd frontend && npm run build"
   },
-
-    "devDependencies": {
-    "nodemon": "^3.0.1"
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
 }
