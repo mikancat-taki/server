@@ -1,0 +1,15 @@
+services:
+  # Webサービスとしてデプロイすることを指定
+  - type: web
+    # サービスの名前（Renderのダッシュボードで表示される）
+    name: my-express-server
+    # 環境としてNode.jsを使用
+    env: node
+    # リージョン（サーバーの場所）。東京の場合は "singapore" が近い
+    region: singapore
+    # プラン（無料プランを指定）
+    plan: free
+    # 依存ライブラリをインストールするコマンド
+    buildCommand: "npm install"
+    # サーバーを起動するコマンド
+    startCommand: "npm start"
