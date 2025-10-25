@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: mikancat-server
+    env: node
+    plan: free
+    region: singapore  # or oregon, frankfurt, etc.
+    buildCommand: |
+      cd node
+      npm install
+    startCommand: |
+      cd node
+      npm start
+    autoDeploy: true
+    branch: main
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    healthCheckPath: /health
+    disk:
+      name: node-cache
+      mountPath: /tmp
+      sizeGB: 1
