@@ -16,3 +16,19 @@ services:
       name: backend-disk
       sizeGB: 1
     autoDeploy: true
+
+  - type: web
+    name: server-frontend
+    env: node
+    plan: free
+    buildCommand: |
+      cd frontend
+      npm install
+      npm run build
+    startCommand: |
+      cd frontend
+      npm run preview -- --port 3001
+    envVars:
+      - key: PORT
+        value: "3001"
+    autoDeploy: true
