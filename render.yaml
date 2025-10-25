@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: server-app
+    name: fullstack-server
     env: node
-    region: singapore
     plan: free
+    region: singapore
     buildCommand: |
       cd frontend && npm install && npm run build
       cd ../node && npm install
