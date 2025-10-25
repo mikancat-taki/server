@@ -1,10 +1,9 @@
-# Node.js 18 ベース（Render推奨）
+# Node.js LTS
 FROM node:18-alpine AS build
 
-# 作業ディレクトリ
 WORKDIR /app
 
-# まずフロントエンドをビルド
+# フロントエンドビルド
 COPY frontend/package*.json ./frontend/
 RUN cd frontend && npm install --no-audit --silent
 COPY frontend ./frontend
@@ -15,10 +14,9 @@ COPY node/package*.json ./node/
 RUN cd node && npm install --no-audit --silent
 COPY node ./node
 
-# build済みフロントをバックエンドにコピー（例: Express静的配信）
+# フロントをバックエンドへコピー（Vite出力済み）
 RUN cp -r frontend/dist node/public
 
 WORKDIR /app/node
 EXPOSE 3000
-
 CMD ["npm", "start"]
