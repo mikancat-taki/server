@@ -7,16 +7,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Member {
-  id        Int     @id @default(autoincrement())
-  name      String
-  tasks     Task[]
-}
-
 model Task {
-  id        Int      @id @default(autoincrement())
-  title     String
-  time      DateTime
-  memberId  Int
-  member    Member   @relation(fields: [memberId], references: [id])
+  id      Int      @id @default(autoincrement())
+  name    String
+  due     DateTime
+  status  String
+  createdAt DateTime @default(now())
 }
